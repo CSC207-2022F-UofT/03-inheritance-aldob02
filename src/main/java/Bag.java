@@ -29,7 +29,9 @@ public abstract class Bag {
      */
     public Bag(String colorSet, int capacitySet){
         color = colorSet;
+        numberOfContents = 0;
         capacity = capacitySet;
+        contents = new String[capacity];
     }
 
     /*
@@ -71,7 +73,7 @@ public abstract class Bag {
      */
     public boolean addItem(String item){
         if (numberOfContents >= capacity) return false;
-        contents[numberOfContents-1] = item;
+        contents[numberOfContents] = item;
         ++numberOfContents;
         return true;
     }
@@ -84,7 +86,7 @@ public abstract class Bag {
      *
      * If there are no items in this Bag, return null.
      *
-     * @return
+     * @return String item, the latest item added to the bag
      */
     public String popItem() {
         if (numberOfContents <= 0) return null;
@@ -108,7 +110,7 @@ public abstract class Bag {
      * This method requires you to have created the private
      * instance variables mentioned above.
      *
-     * @return
+     * @return String representation of object
      */
     @Override
     public String toString() {
